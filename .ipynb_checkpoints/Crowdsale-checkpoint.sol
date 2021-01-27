@@ -23,6 +23,7 @@ contract PupperCoinSale is Crowdsale, MintedCrowdsale, CappedCrowdsale, TimedCro
         // @TODO: Pass the constructor parameters to the crowdsale contracts.
         Crowdsale(rate,wallet,token)
         CappedCrowdsale(cap)
+        MintedCrowdsale()
         RefundablePostDeliveryCrowdsale() 
         RefundableCrowdsale(goal)
         TimedCrowdsale(openingTime,closingTime)
@@ -57,8 +58,8 @@ contract PupperCoinSaleDeployer {
                 1,  // conversion rate   1/18
                 wallet, 
                 token,
-                cap , // Capped sale
-                goal,  // the maximum fund to raise i wei
+                cap , 
+                goal,  
                 now,
                 now + 24 weeks);
             token_sale_address = address(pupper_sale);
